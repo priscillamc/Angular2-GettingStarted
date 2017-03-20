@@ -1,12 +1,41 @@
+/* 
+ * Component file for the ProductList Component
+ *
+ * Displays a list of products
+ * Class name must also be included in the module's declarations array
+*/
+
+/* Uses the Angular component decorator and the OnInit lifecycle hook */
 import { Component, OnInit } from '@angular/core';
 
+/* Uses the custom IProduct interface/datatype */
 import { IProduct } from './product';
 
+/* 
+ * Component decorator function, defines the metadata for the component 
+ *
+ * Passed an object with the following properties:
+ * 	selector: string 	- name of the directive used in HTML, Example: <pm-products></pm-products>
+ * 	moduleId: module.id - specify to use component-relative paths
+ * 	templateUrl: string - path to the external HTML that replaces the pm-products tag
+ * 	style: array 		- inline style strings
+ * 	styleUrls: array 	- paths to stylesheets, they only apply to this component
+*/
 @Component({
-    selector: 'pm-products',
-    templateUrl: 'app/products/product-list.component.html',
-	styleUrls: ['app/products/product-list.component.css']
+    selector: 'pm-products' ,
+	moduleId: module.id, 
+    templateUrl: 'product-list.component.html',
+	styleUrls: ['product-list.component.css']
 })
+/* 
+ * ProductListComponent class
+ *
+ * Exported so that it can be used anywhere in application
+ *
+ * Implements OnInit, so transform() method is required.
+ * A class must have code for every property and method of the interface that it implements.
+ *
+*/
 export class ProductListComponent implements OnInit {
     pageTitle: string = 'Product List';
     imageWidth: number = 50;

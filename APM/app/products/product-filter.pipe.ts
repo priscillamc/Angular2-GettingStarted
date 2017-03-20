@@ -1,11 +1,34 @@
+/* 
+ * ProductFilterPipe used in ProductListComponent
+ *
+ * Filters the product list based on the user's filter by value
+ * Class name must also be included in the component module's declarations array
+*/
+
+/* Uses the Angular Pipe decorator and PipeTransform interface */
 import { Pipe, PipeTransform } from '@angular/core';
 
+/* Uses the IProduct interface/datatype */
 import { IProduct } from './product';
 
+/* 
+ * Pipe decorator function, defines the metadata for the pipe
+ *
+ * Passed an object with the following properties:
+ * 	name: string 	- name of the filter used in the HTML. 
+ *  Example: `<tr *ngFor="let product of products | productFilter:listFilter">`
+ */
 @Pipe({
 	name: 'productFilter'
 })
-
+/* 
+ * ProductListPipe class
+ *
+ * Exported so that it can be used anywhere in application
+ *
+ * Implements PipeTransform, so transform() method is required.
+ * A class must have code for every property and method of the interface that it implements.
+*/
 export class ProductFilterPipe implements PipeTransform {
 	
 	// Transform the list of products to a filtered list of products
